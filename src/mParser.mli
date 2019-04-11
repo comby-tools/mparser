@@ -3,6 +3,7 @@
    -----------------------------------------------------------------------------
    Copyright (C) 2008, Holger Arnold
                  2014-2017, Max Mouratov
+                 2019, Rijnard van Tonder
 
    License:
      This library is free software; you can redistribute it and/or
@@ -283,6 +284,15 @@ val parse_channel: ('a, 's) t -> in_channel -> 's -> 'a result
 (** [parse_string p chn user] runs the parser [p] on the input stream produced
     from the channel [chn] using the initial user state [user]. The stream is
     created with [MParser_Char_Stream.from_channel]. *)
+
+val parse': ('a, 's) t -> MParser_Char_Stream.t -> 's -> ('a * 's) result
+(** Same as parse, but returns the user state as well. *)
+
+val parse_string': ('a, 's) t -> string -> 's -> ('a * 's) result
+(** Same as parse_string, but returns the user state as well. *)
+
+val parse_channel': ('a, 's) t -> in_channel -> 's -> ('a * 's) result
+(** Same as parse_channel, but returns the user state as well. *)
 
 
 (** {2 Parser combinators}

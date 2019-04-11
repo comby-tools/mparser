@@ -3,6 +3,7 @@
    -----------------------------------------------------------------------------
    Copyright (C) 2008, Holger Arnold
                  2014-2017, Max Mouratov
+                 2019, Rijnard van Tonder
 
    License:
      This library is free software; you can redistribute it and/or
@@ -348,6 +349,25 @@ let parse_string p str user =
 let parse_channel p chn user =
   let input = MParser_Char_Stream.from_channel chn in
   parse p input user
+
+let parse' p input user =
+  match p (init input user) with
+    | Empty_ok (x, s, _) | Consumed_ok (x, s, _) ->
+        Success (x, s.user)
+    | Empty_failed e | Consumed_failed e ->
+        (match e with
+          | Parse_error (pos, messages) ->
+              Failed (error_message input pos messages 78 0, e)
+          | No_error ->
+              Failed ("", e))
+
+let parse_string' p str user =
+  let input = MParser_Char_Stream.from_string str in
+  parse' p input user
+
+let parse_channel' p chn user =
+  let input = MParser_Char_Stream.from_channel chn in
+  parse' p input user
 
 
 (* Parser combinators
