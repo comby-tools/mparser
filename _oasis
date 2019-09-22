@@ -1,13 +1,13 @@
-Name: MParser
-Version: 1.2.3
-Synopsis: A simple monadic parser combinator library
-Authors: Holger Arnold, Max Mouratov
-Maintainers: Max Mouratov
+Name: mparser-comby
+Version: 0.1.0
+Synopsis: A simple monadic parser combinator library modified for Comby
+Authors: Holger Arnold, Max Mouratov, Rijnard van Tonder
+Maintainers: Rijnard
 License: LGPL-2.1 with OCaml linking exception
 LicenseFile: LICENSE.txt
 Plugins: META (0.2)
 BuildTools: ocamlbuild
-Homepage: https://github.com/cakeplus/mparser
+Homepage: https://github.com/comby-tools/mparser
 OASISFormat: 0.4
 OCamlVersion: >= 3.12
 AlphaFeatures: pure_interface, ocamlbuild_more_args
@@ -76,5 +76,5 @@ Document "API"
 
 SourceRepository this
   Type: git
-  Location: https://github.com/cakeplus/mparser
-  Tag: 1.2.3
+  Location: https://github.com/comby-tools/comby
+  Tag: 0.1.0

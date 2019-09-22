@@ -1,0 +1,37 @@
+opam-version: "2.0"
+name: "mparser-comby"
+version: "0.1.0"
+maintainer: "Rijnard van Tonder <rvantonder@gmail.com>"
+authors: "Holger Arnold <holger@harnold.org>"
+homepage: "https://github.com/comby-tools/mparser"
+bug-reports: "https://github.com/comby-tools/mparser/issues"
+dev-repo: "git://https://github.com/comby-tools/mparser.git"
+license: "LGPL-2.1 with OCaml linking exception"
+depends: [
+  "base-bytes"
+  "ocamlfind" {build}
+  "ocamlbuild" {build}
+]
+depexts: [
+    [
+      "pkg-config"
+      "libpcre3-dev"
+    ] {os-distribution = "ubuntu"}
+    [
+      "pkg-config"
+      "pcre"
+    ] {os-distribution = "macos"}
+]
+build: [
+  ["oasis" "setup"]
+  ["ocaml" "setup.ml" "-configure" "--prefix" prefix "--enable-re" "--enable-pcre"]
+  ["ocaml" "setup.ml" "-build"]
+]
+install: [
+  ["ocaml" "setup.ml" "-install"]
+]
+remove: [
+  ["ocamlfind" "remove" "mparser"]
+]
+synopsis: "A parser combinator library"
+description: ""
