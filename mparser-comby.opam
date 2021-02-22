@@ -6,11 +6,11 @@ description: """
 This library implements a rather complete and efficient monadic parser
 combinator library similar to the Parsec library for Haskell by Daan Leijen and
 the FParsec library for FSharp by Stephan Tolksdorf."""
-maintainer: ["Max Mouratov"]
-authors: ["Holger Arnold" "Max Mouratov"]
+maintainer: ["Rijnard van Tonder"]
+authors: ["Holger Arnold" "Max Mouratov" "Rijnard van Tonder"]
 license: "LGPL-2.1 with OCaml linking exception"
-homepage: "https://github.com/murmour/mparser"
-bug-reports: "https://github.com/murmour/mparser/issues"
+homepage: "https://github.com/comby/mparser"
+bug-reports: "https://github.com/comby/mparser/issues"
 depends: [
   "dune" {>= "1.11"}
 ]
@@ -28,4 +28,4 @@ build: [
     "@doc" {with-doc}
   ]
 ]
-dev-repo: "git+https://github.com/murmour/mparser.git"
+dev-repo: "git+https://github.com/comby/mparser.git"
