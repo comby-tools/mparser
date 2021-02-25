@@ -284,6 +284,15 @@ val parse_channel: ('a, 's) t -> in_channel -> 's -> 'a result
     from the channel [chn] using the initial user state [user]. The stream is
     created with [MParser_Char_Stream.from_channel]. *)
 
+val parse': ('a, 's) t -> MParser_Char_Stream.t -> 's -> ('a * 's) result
+(** Same as parse, but returns the user state as well. *)
+
+val parse_string': ('a, 's) t -> string -> 's -> ('a * 's) result
+(** Same as parse_string, but returns the user state as well. *)
+
+val parse_channel': ('a, 's) t -> in_channel -> 's -> ('a * 's) result
+(** Same as parse_channel, but returns the user state as well. *)
+
 
 (** {2 Parser combinators}
 
